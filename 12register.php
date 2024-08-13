@@ -25,7 +25,7 @@ $sql = "INSERT INTO std (registerNumber, name, username, password, branch, cellN
         VALUES ('$registerNumber', '$name', '$username', '$password', '$branch', '$cellNumber', '$email' )";
 
 if (mysqli_query($conn, $sql) === TRUE) {
-    echo "<script>alert('Registration Successful'); window.location.href='login.php';</script>";
+    echo "<script>alert('Registration Successful'); window.location.href='12login.php';</script>";
     exit;
 } else {
     echo "<script>alert('Registration Failed: " . mysqli_error($conn) . "'); window.location.href='registration.php';</script>";
