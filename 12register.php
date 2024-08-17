@@ -12,20 +12,17 @@ else {
 } 
 	
 
-$registerNumber = $_POST["regno"];
+$registerno = $_POST["registerno"];
 $name = $_POST["name"];
-$username = $_POST["uname"];
-$password = $_POST["paswd"];
-$branch = $_POST["branch"];
-$cellNumber = $_POST["cellnum"];
 $email = $_POST["email"];
+$cellno = $_POST["cellno"];
+$branch = $_POST["branch"];
 
-
-$sql = "INSERT INTO std (registerNumber, name, username, password, branch, cellNumber, email)
-        VALUES ('$registerNumber', '$name', '$username', '$password', '$branch', '$cellNumber', '$email' )";
+$sql = "INSERT INTO class2 (registerno, name, email, cellno ,branch)
+        VALUES ('$registerno', '$name', '$email', '$cellno', '$branch')";
 
 if (mysqli_query($conn, $sql) === TRUE) {
-    echo "<script>alert('Registration Successful'); window.location.href='12login.php';</script>";
+    echo "<script>alert('Registration Successful'); window.location.href='login.php';</script>";
     exit;
 } else {
     echo "<script>alert('Registration Failed: " . mysqli_error($conn) . "'); window.location.href='registration.php';</script>";
@@ -33,3 +30,7 @@ if (mysqli_query($conn, $sql) === TRUE) {
 }
 mysqli_close($conn);
 ?>
+
+
+
+
