@@ -20,9 +20,18 @@ if ($conn) {
     <title>Student Records</title>
 </head>
 <body>
+<form method="GET" action="">
+        <label for="branch">Branch : </label>
+        <input type="text" id="branch" name="branch" required>
+        <input type="submit" value="Submit">
+    </form>
 <?php
 
-$sql = "SELECT * FROM class2 where branch = 'Mechinical' ";
+
+if (isset($_GET['branch']) && !empty($_GET['branch'])) {
+    $branch = mysqli_real_escape_string($conn, $_GET['branch']); 
+
+$sql = "SELECT * FROM class2 where branch = '$branch' ";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -47,6 +56,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "</table>";
 } else {
     echo "<br><br><br>No Records";
+}
 }
 
 mysqli_close($conn);
