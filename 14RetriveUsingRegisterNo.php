@@ -20,10 +20,20 @@ if ($conn) {
     <title>Student Records</title>
 </head>
 <body>
+<form method="GET" action="">
+        <label for="rgd">Register Number:</label>
+        <input type="text" id="rgd" name="rgd" required>
+        <input type="submit" value="Submit">
+    </form>
 <?php
 
-$sql = "SELECT * FROM class2 where registerno = '221FJ01002' ";
+if (isset($_GET['rgd']) && !empty($_GET['rgd'])) {
+    $rgd = mysqli_real_escape_string($conn, $_GET['rgd']); 
+
+$sql = "SELECT * FROM class2 where registerno = '$rgd' ";
 $result = mysqli_query($conn, $sql);
+
+
 
 if (mysqli_num_rows($result) > 0) {
     echo "<table border='1'>
@@ -47,6 +57,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "</table>";
 } else {
     echo "<br><br><br>No Records";
+}
 }
 
 mysqli_close($conn);
