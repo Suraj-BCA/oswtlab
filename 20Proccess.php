@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['name'] = $name;
     $_SESSION['email'] = $email;
 
-    header("Location: Submitt.php");
+    header("Location: 20Submitt.php");
     exit();
 } else {
     echo "Invalid request.";
